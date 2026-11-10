@@ -1,17 +1,25 @@
-function buscarApi() {
-    fetch("https://viacep.com.br/ws/69902145/json/")
-    .then(resposta => {
-        return resposta.json()
-    }) .then(data => {
-        console.log(data)
-    })
-}
+let valor = 0;
+const num = document.getElementById("numero");
+const menos = document.getElementById("menos");
+const mais = document.getElementById("mais");
+const resetar = document.getElementById("resetar")
 
-async function buscarApiAsync() {
-    let resposta = await fetch("https://viacep.com.br/ws/69902145/json/")
-    let data = await resposta.json();
+menos.addEventListener("click", () => {
+    if(valor == 0) return; //para
+    valor -= 1;
+    num.textContent = valor;
+});
 
-    console.log(data)
-}
+mais.addEventListener("click", () => {
+    valor += 1;
+    num.textContent = valor;
+});
 
-buscarApiAsync();
+resetar.addEventListener("click",() => {
+      if(valor == 0) return;
+    valor = 0;
+    num.textContent = valor;
+})
+
+
+
